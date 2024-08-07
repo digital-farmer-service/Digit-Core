@@ -27,32 +27,32 @@ public class GatewayApplication {
 	@Autowired
 	private ApplicationProperties applicationProperties;
 
-    @Value("${elastic.apm.service-name}")
-    private String serviceName;
+    // @Value("${elastic.apm.service-name}")
+    // private String serviceName;
 
-    @Value("${elastic.apm.server-url}")
-    private String serviceUrl;
+    // @Value("${elastic.apm.server-url}")
+    // private String serviceUrl;
 
-    @Value("${elastic.apm.application-packages}")
-    private String applicationPackages;
+    // @Value("${elastic.apm.application-packages}")
+    // private String applicationPackages;
 
-    @Value("${elastic.apm.environment}")
-    private String environment;
+    // @Value("${elastic.apm.environment}")
+    // private String environment;
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayApplication.class, args);
 	}
 
-    @PostConstruct
-    public void initElasticApm() {
-        Map<String, String> apmConfig = new HashMap<>();
-        apmConfig.put("service_name", serviceName);
-        apmConfig.put("server_urls", serviceUrl);
-        apmConfig.put("secret_token", "");
-        apmConfig.put("application_packages", applicationPackages);
-        apmConfig.put("environment", environment);
-        ElasticApmAttacher.attach(apmConfig);
-    }
+    // @PostConstruct
+    // public void initElasticApm() {
+    //     Map<String, String> apmConfig = new HashMap<>();
+    //     apmConfig.put("service_name", serviceName);
+    //     apmConfig.put("server_urls", serviceUrl);
+    //     apmConfig.put("secret_token", "");
+    //     apmConfig.put("application_packages", applicationPackages);
+    //     apmConfig.put("environment", environment);
+    //     ElasticApmAttacher.attach(apmConfig);
+    // }
 
 	@Value("${egov.user-info-header}")
 	private String userInfoHeader;
